@@ -8,14 +8,21 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(405).json({ message: 'Method not allowed' });
     return;
   }
-
-  const { characteristic, selectedPersonId } = req.body;
+  
+  const { characteristic, selectedPersonId, otherPersonId } = req.body;
 
   const { db } = await connectToDatabase();
+
   await db.collection('people').updateOne(
     { _id: new ObjectId(selectedPersonId) },
-    { $inc: { [`wins.${characteristic}`]: 1 } }
+    { $inc: { [`wins.${characteristic}`]: 1, [`matchups.${characteristic}`]: 1 } }
   );
+
+  await db.collection('people').updateOne(
+    { _id: new ObjectId(otherPersonId) },
+    { $inc: { [`matchups.${characteristic}`]: 1 } }
+  );
+
   
   res.status(200).json({ message: 'Vote submitted successfully' });
 };

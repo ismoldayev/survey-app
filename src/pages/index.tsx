@@ -24,13 +24,15 @@ export default function Home() {
   }
 
   async function handlePersonSelect(selectedPersonId: string) {
-    await submitVote(
-      characteristic as "attractiveness" | "intelligence" | "charisma",
-      selectedPersonId
-    );
     const { personA, personB } = await getMatchup();
     setPersonA(personA);
     setPersonB(personB);
+    const otherPersonId = personA?._id === selectedPersonId ? personB?._id : personA?._id;
+    await submitVote(
+      characteristic as "attractiveness" | "intelligence" | "charisma",
+      selectedPersonId,
+      otherPersonId
+    );
   }
 
   async function handleShowResults() {

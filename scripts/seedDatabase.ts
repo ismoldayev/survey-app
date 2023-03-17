@@ -16,7 +16,6 @@ if (!MONGODB_DB) {
 
 const people = [
   {
-
     name: "Иван Иванов",
     photoUrl: "https://i.imgur.com/uM0bzV0.png",
     wins: {
@@ -24,6 +23,7 @@ const people = [
       intelligence: 0,
       charisma: 0,
     },
+    matchups: {},
   },
   {
     name: "Камен Монев",
@@ -33,6 +33,7 @@ const people = [
       intelligence: 0,
       charisma: 0,
     },
+    matchups: {},
   },
   {
     name: "Мартин Добрев",
@@ -42,6 +43,7 @@ const people = [
       intelligence: 0,
       charisma: 0,
     },
+    matchups: {},
   },
   {
     name: "Месру Гемеджи",
@@ -51,6 +53,7 @@ const people = [
       intelligence: 0,
       charisma: 0,
     },
+    matchups: {},
   },
   {
     name: "Момчил Марков",
@@ -60,6 +63,7 @@ const people = [
       intelligence: 0,
       charisma: 0,
     },
+    matchups: {},
   },
   {
     name: "Никола Николов",
@@ -69,6 +73,7 @@ const people = [
       intelligence: 0,
       charisma: 0,
     },
+    matchups: {},
   },
   {
     name: "Петър Добрев",
@@ -78,6 +83,7 @@ const people = [
       intelligence: 0,
       charisma: 0,
     },
+    matchups: {},
   },
   {
     name: "Симеон Обретенов",
@@ -87,6 +93,7 @@ const people = [
       intelligence: 0,
       charisma: 0,
     },
+    matchups: {},
   },
   {
     name: "Теодор Попов",
@@ -96,6 +103,7 @@ const people = [
       intelligence: 0,
       charisma: 0,
     },
+    matchups: {},
   },
   {
     name: "Денис Каим",
@@ -105,6 +113,7 @@ const people = [
       intelligence: 0,
       charisma: 0,
     },
+    matchups: {},
   },
   {
     name: "Дамян Славов",
@@ -114,6 +123,7 @@ const people = [
       intelligence: 0,
       charisma: 0,
     },
+    matchups: {},
   },
   {
     name: "Георги Райчев",
@@ -123,6 +133,7 @@ const people = [
       intelligence: 0,
       charisma: 0,
     },
+    matchups: {},
   },
   {
     name: "Хари Алтъпармаков",
@@ -132,6 +143,7 @@ const people = [
       intelligence: 0,
       charisma: 0,
     },
+    matchups: {},
   },
   {
     name: "Иван Лупов",
@@ -141,6 +153,7 @@ const people = [
       intelligence: 0,
       charisma: 0,
     },
+    matchups: {},
   },
   {
     name: "Огнян Арсов",
@@ -150,6 +163,7 @@ const people = [
       intelligence: 0,
       charisma: 0,
     },
+    matchups: {},
   },
   {
     name: "Иван Димов",
@@ -159,7 +173,169 @@ const people = [
       intelligence: 0,
       charisma: 0,
     },
+    matchups: {},
   },
+  {
+    name: "Борис Тодоров",
+    photoUrl: "https://i.imgur.com/I62lAlr.png",
+    wins: {
+      attractiveness: 0,
+      intelligence: 0,
+      charisma: 0,
+    },
+    matchups: {},
+  },
+  {
+    name: "Борис Станчев",
+    photoUrl: "https://i.imgur.com/utHLyDO.png",
+    wins: {
+      attractiveness: 0,
+      intelligence: 0,
+      charisma: 0,
+    },
+    matchups: {},
+  },
+  {
+    name: "Александър Янев",
+    photoUrl: "https://i.imgur.com/mOs6zD0.png",
+    wins: {
+      attractiveness: 0,
+      intelligence: 0,
+      charisma: 0,
+    },
+    matchups: {},
+  },
+  {
+    name: "King",
+    photoUrl: "https://i.imgur.com/5xFicQA.png",
+    wins: {
+      attractiveness: 0,
+      intelligence: 0,
+      charisma: 0,
+    },
+    matchups: {},
+  },
+  {
+    name: "Радослав Кънев",
+    photoUrl: "https://i.imgur.com/R1gB48D.png",
+    wins: {
+      attractiveness: 0,
+      intelligence: 0,
+      charisma: 0,
+    },
+    matchups: {},
+  },
+  {
+    name: "Мартин Гоцев",
+    photoUrl: "https://i.imgur.com/cZDGrYD.png",
+    wins: {
+      attractiveness: 0,
+      intelligence: 0,
+      charisma: 0,
+    },
+    matchups: {},
+  },
+  {
+    name: "Калоян Петров",
+    photoUrl: "https://i.imgur.com/2ho9acl.png",
+    wins: {
+      attractiveness: 0,
+      intelligence: 0,
+      charisma: 0,
+    },
+    matchups: {},
+  },
+  {
+    name: "Илиян Илиев",
+    photoUrl: "https://i.imgur.com/FcLwRCS.png",
+    wins: {
+      attractiveness: 0,
+      intelligence: 0,
+      charisma: 0,
+    },
+    matchups: {},
+  },
+  {
+    name: "Георги Велков",
+    photoUrl: "https://i.imgur.com/c1MXoDK.png",
+    wins: {
+      attractiveness: 0,
+      intelligence: 0,
+      charisma: 0,
+    },
+    matchups: {},
+  },
+  {
+    name: "Даниел де Храул",
+    photoUrl: "https://i.imgur.com/yDGUWW5.png",
+    wins: {
+      attractiveness: 0,
+      intelligence: 0,
+      charisma: 0,
+    },
+    matchups: {},
+  },
+  {
+    name: "Маргулан Исмолдаев",
+    photoUrl: "https://i.imgur.com/micc4gX.png",
+    wins: {
+      attractiveness: 0,
+      intelligence: 0,
+      charisma: 0,
+    },
+    matchups: {},
+  },
+  {
+    name: "Станислав Великов",
+    photoUrl: "https://i.imgur.com/UiVVHVx.png",
+    wins: {
+      attractiveness: 0,
+      intelligence: 0,
+      charisma: 0,
+    },
+    matchups: {},
+  },
+  {
+    name: "Александър Димитров",
+    photoUrl: "https://i.imgur.com/awvohfV.png",
+    wins: {
+      attractiveness: 0,
+      intelligence: 0,
+      charisma: 0,
+    },
+    matchups: {},
+  },
+  {
+    name: "Даниел Димитров",
+    photoUrl: "https://i.imgur.com/VlFncuF.png",
+    wins: {
+      attractiveness: 0,
+      intelligence: 0,
+      charisma: 0,
+    },
+    matchups: {},
+  },
+  {
+    name: "Антоний Георгиев",
+    photoUrl: "https://i.imgur.com/v9fiHki.png",
+    wins: {
+      attractiveness: 0,
+      intelligence: 0,
+      charisma: 0,
+    },
+    matchups: {},
+  },
+  {
+    name: "Анжело Кискуцу",
+    photoUrl: "https://i.imgur.com/IsJEVCd.png",
+    wins: {
+      attractiveness: 0,
+      intelligence: 0,
+      charisma: 0,
+    },
+    matchups: {},
+  },
+  
   // Add more people here
 ];
 

@@ -5,7 +5,19 @@ interface RankingResultsProps {
   people: Person[];
 }
 
+type Characteristic = "attractiveness" | "intelligence" | "charisma";
+
 const RankingResults: React.FC<RankingResultsProps> = ({ people }) => {
+  function calculatePercentage(wins: number, matchups: number): string {
+    return ((wins / matchups) * 100).toFixed(1);
+  }
+
+  const characteristics: Characteristic[] = [
+    "attractiveness",
+    "intelligence",
+    "charisma",
+  ];
+
   return (
     <div className="ranking-results">
       <h2>Results:</h2>
@@ -24,17 +36,38 @@ const RankingResults: React.FC<RankingResultsProps> = ({ people }) => {
                 <img src={person.photoUrl} alt={person.name} />
               </div>
               <h3>{person.name}</h3>
+              {characteristics.map((characteristic) => (
+                <p key={characteristic}>
+                  {characteristic} wins: {person.wins[characteristic]} /{" "}
+                  {person.matchups[characteristic]} (
+                  {calculatePercentage(
+                    person.wins[characteristic],
+                    person.matchups[characteristic]
+                  )}
+                  %)
+                </p>
+              ))}
               <p>
-                Attractiveness wins: {person.wins.attractiveness}
-                <br />
-                Intelligence wins: {person.wins.intelligence}
-                <br />
-                Charisma wins: {person.wins.charisma}
-                <br />
                 Total wins:{" "}
                 {person.wins.attractiveness +
                   person.wins.intelligence +
                   person.wins.charisma}
+                <br />
+                Total matchups:{" "}
+                {person.matchups.attractiveness +
+                  person.matchups.intelligence +
+                  person.matchups.charisma}
+                <br />
+                Overall win percentage:{" "}
+                {calculatePercentage(
+                  person.wins.attractiveness +
+                    person.wins.intelligence +
+                    person.wins.charisma,
+                  person.matchups.attractiveness +
+                    person.matchups.intelligence +
+                    person.matchups.charisma
+                )}
+                %
               </p>
             </li>
           ))}

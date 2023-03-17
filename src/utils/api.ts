@@ -12,7 +12,8 @@ export async function getMatchup(): Promise<{
 
 export async function submitVote(
   characteristic: string,
-  selectedPersonId: string
+  selectedPersonId: string,
+  otherPersonId: string
 ): Promise<void> {
   await fetch(`${API_BASE_URL}/vote`, {
     method: "POST",
@@ -22,6 +23,7 @@ export async function submitVote(
     body: JSON.stringify({
       characteristic,
       selectedPersonId,
+      otherPersonId,
     }),
   });
 }
