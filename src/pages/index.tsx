@@ -27,7 +27,8 @@ export default function Home() {
     const { personA, personB } = await getMatchup();
     setPersonA(personA);
     setPersonB(personB);
-    const otherPersonId = personA?._id === selectedPersonId ? personB?._id : personA?._id;
+    const otherPersonId =
+      personA?._id === selectedPersonId ? personB?._id : personA?._id;
     await submitVote(
       characteristic as "attractiveness" | "intelligence" | "charisma",
       selectedPersonId,
@@ -85,6 +86,13 @@ export default function Home() {
             </button>
           </div>
         </div>
+      )}
+
+      {characteristic && !showResults && (
+        <h2>
+          Ranking:{" "}
+          {characteristic.charAt(0).toUpperCase() + characteristic.slice(1)}
+        </h2>
       )}
 
       {characteristic && !showResults && (
