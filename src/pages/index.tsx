@@ -87,7 +87,9 @@ export default function Home() {
           </div>
         </div>
       )}
-
+      {characteristic && !showResults && (
+        <h3 className="warning">Бъдете честни!</h3>
+      )}
       {characteristic && !showResults && (
         <h2>
           Ranking:{" "}
