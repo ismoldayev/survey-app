@@ -1,5 +1,5 @@
-import React from 'react';
-import { Person } from '../utils/types';
+import React from "react";
+import { Person } from "../utils/types";
 
 interface MatchupProps {
   personA: Person | null;
@@ -7,19 +7,27 @@ interface MatchupProps {
   onPersonSelect: (selectedPersonId: string) => void;
 }
 
-const Matchup: React.FC<MatchupProps> = ({ personA, personB, onPersonSelect }) => {
+const Matchup: React.FC<MatchupProps> = ({
+  personA,
+  personB,
+  onPersonSelect,
+}) => {
   if (!personA || !personB) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div className='matchup'>
+    <div className="matchup">
       <div onClick={() => onPersonSelect(personA._id)}>
-        <img src={personA.photoUrl} alt={personA.name} />
+        <div className="img-container">
+          <img src={personA.photoUrl} alt={personA.name} />
+        </div>
         <h3>{personA.name}</h3>
       </div>
       <div onClick={() => onPersonSelect(personB._id)}>
-        <img src={personB.photoUrl} alt={personB.name} />
+        <div className="img-container">
+          <img src={personB.photoUrl} alt={personB.name} />
+        </div>
         <h3>{personB.name}</h3>
       </div>
     </div>

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Head from "next/head";
-import Matchup from "../../src/components/Matchup";
-import RankingResults from "../../src/components/RankingResults";
-import { getMatchup, submitVote, getResults } from "../../src/utils/api";
-import { Person } from "../../src/utils/types";
+import Matchup from "../components/Matchup";
+import RankingResults from "../components/RankingResults";
+import { getMatchup, submitVote, getResults } from "../utils/api";
+import { Person } from "../utils/types";
 
 export default function Home() {
   const [characteristic, setCharacteristic] = useState<
@@ -57,15 +57,31 @@ export default function Home() {
       {!characteristic && (
         <div>
           <h2>Please select a characteristic to rank:</h2>
-          <button onClick={() => handleCharacteristicSelect("attractiveness")}>
-            Attractiveness
-          </button>
-          <button onClick={() => handleCharacteristicSelect("intelligence")}>
-            Intelligence
-          </button>
-          <button onClick={() => handleCharacteristicSelect("charisma")}>
-            Charisma
-          </button>
+          <div className="btn-container">
+            <button
+              className="btn"
+              onClick={() => handleCharacteristicSelect("attractiveness")}
+            >
+              Attractiveness
+            </button>
+            <button
+              className="btn"
+              onClick={() => handleCharacteristicSelect("intelligence")}
+            >
+              Intelligence
+            </button>
+            <button
+              className="btn"
+              onClick={() => handleCharacteristicSelect("charisma")}
+            >
+              Charisma
+            </button>
+          </div>
+          <div className="btn-container">
+            <button className="btn" onClick={handleShowResults}>
+              Show Results
+            </button>
+          </div>
         </div>
       )}
 
@@ -77,14 +93,25 @@ export default function Home() {
         />
       )}
 
-      {showResults && <RankingResults people={results} />}
-
-      {!showResults && (
-        <>
-          <button onClick={() => setCharacteristic(null)}>
+      {characteristic && !showResults && (
+        <div className="btn-container">
+          <button className="btn" onClick={() => setCharacteristic(null)}>
             Switch Characteristic
           </button>
-          <button onClick={handleShowResults}>Show Results</button>
+          <button className="btn" onClick={handleShowResults}>
+            Show Results
+          </button>
+        </div>
+      )}
+
+      {showResults && (
+        <>
+          <div className="btn-container">
+            <button className="btn" onClick={() => setShowResults(false)}>
+              Choose New Characteristic
+            </button>
+          </div>
+          <RankingResults people={results} />
         </>
       )}
     </div>
