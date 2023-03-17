@@ -23,13 +23,25 @@ const RankingResults: React.FC<RankingResultsProps> = ({ people }) => {
       <h2>Results:</h2>
       <ol>
         {people
-          .sort(
-            (a, b) =>
-              b.wins.attractiveness +
-              b.wins.intelligence +
-              b.wins.charisma -
-              (a.wins.attractiveness + a.wins.intelligence + a.wins.charisma)
-          )
+          .sort((a, b) => {
+            const aTotalWins =
+              a.wins.attractiveness + a.wins.intelligence + a.wins.charisma;
+            const aTotalMatchups =
+              a.matchups.attractiveness +
+              a.matchups.intelligence +
+              a.matchups.charisma;
+            const aPercentage = aTotalWins / aTotalMatchups;
+
+            const bTotalWins =
+              b.wins.attractiveness + b.wins.intelligence + b.wins.charisma;
+            const bTotalMatchups =
+              b.matchups.attractiveness +
+              b.matchups.intelligence +
+              b.matchups.charisma;
+            const bPercentage = bTotalWins / bTotalMatchups;
+
+            return bPercentage - aPercentage;
+          })
           .map((person) => (
             <li key={person._id}>
               <div className="img-container">
