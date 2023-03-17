@@ -5,7 +5,7 @@ interface RankingResultsProps {
   people: Person[];
 }
 
-type Characteristic = "attractiveness" | "intelligence" | "charisma";
+type Characteristic = "seksapil" | "cuteness" | "wifematerial";
 
 const RankingResults: React.FC<RankingResultsProps> = ({ people }) => {
   function calculatePercentage(wins: number, matchups: number): string {
@@ -13,64 +13,73 @@ const RankingResults: React.FC<RankingResultsProps> = ({ people }) => {
   }
 
   const characteristics: Characteristic[] = [
-    "attractiveness",
-    "intelligence",
-    "charisma",
+    "seksapil",
+    "cuteness",
+    "wifematerial",
   ];
+
+  const sortedPeople = people.sort(
+    (a, b) =>
+      b.wins.seksapil +
+      b.wins.cuteness +
+      b.wins.wifematerial -
+      (a.wins.seksapil + a.wins.cuteness + a.wins.wifematerial)
+  );
 
   return (
     <div className="ranking-results">
       <h2>Results:</h2>
       <ol>
-        {people
-          .sort(
-            (a, b) =>
-              b.wins.attractiveness +
-              b.wins.intelligence +
-              b.wins.charisma -
-              (a.wins.attractiveness + a.wins.intelligence + a.wins.charisma)
-          )
-          .map((person) => (
-            <li key={person._id}>
-              <div className="img-container">
-                <img src={person.photoUrl} alt={person.name} />
-              </div>
-              <h3>{person.name}</h3>
-              {characteristics.map((characteristic) => (
-                <p key={characteristic}>
-                  {characteristic} wins: {person.wins[characteristic]} /{" "}
-                  {person.matchups[characteristic]} (
-                  {calculatePercentage(
-                    person.wins[characteristic],
-                    person.matchups[characteristic]
-                  )}
-                  %)
-                </p>
-              ))}
-              <p>
-                Total wins:{" "}
-                {person.wins.attractiveness +
-                  person.wins.intelligence +
-                  person.wins.charisma}
-                <br />
-                Total matchups:{" "}
-                {person.matchups.attractiveness +
-                  person.matchups.intelligence +
-                  person.matchups.charisma}
-                <br />
-                Overall win percentage:{" "}
+        {sortedPeople.map((person, index) => (
+          <li key={person._id}>
+            <div className="img-container">
+              <img src={person.photoUrl} alt={person.name} />
+              {index === 0 && (
+                <img
+                  src="/crown.png"
+                  alt="crown"
+                  className="crown"
+                  width="70"
+                  height="70"
+                />
+              )}
+            </div>
+            <h3>{person.name}</h3>
+            {characteristics.map((characteristic) => (
+              <p key={characteristic}>
+                {characteristic} wins: {person.wins[characteristic]} /{" "}
+                {person.matchups[characteristic]} (
                 {calculatePercentage(
-                  person.wins.attractiveness +
-                    person.wins.intelligence +
-                    person.wins.charisma,
-                  person.matchups.attractiveness +
-                    person.matchups.intelligence +
-                    person.matchups.charisma
+                  person.wins[characteristic],
+                  person.matchups[characteristic]
                 )}
-                %
+                %)
               </p>
-            </li>
-          ))}
+            ))}
+            <p>
+              Total wins:{" "}
+              {person.wins.seksapil +
+                person.wins.cuteness +
+                person.wins.wifematerial}
+              <br />
+              Total matchups:{" "}
+              {person.matchups.seksapil +
+                person.matchups.cuteness +
+                person.matchups.wifematerial}
+              <br />
+              Overall win percentage:{" "}
+              {calculatePercentage(
+                person.wins.seksapil +
+                  person.wins.cuteness +
+                  person.wins.wifematerial,
+                person.matchups.seksapil +
+                  person.matchups.cuteness +
+                  person.matchups.wifematerial
+              )}
+              %
+            </p>
+          </li>
+        ))}
       </ol>
     </div>
   );

@@ -3,13 +3,13 @@ export interface Person {
   name: string;
   photoUrl: string;
   wins: {
-    attractiveness: number;
-    intelligence: number;
-    charisma: number;
+    seksapil: number;
+    cuteness: number;
+    wifematerial: number;
   };
   matchups: {
-    attractiveness: number;
-    intelligence: number;
-    charisma: number;
+    seksapil: number;
+    cuteness: number;
+    wifematerial: number;
   };
 }

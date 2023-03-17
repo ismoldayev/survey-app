@@ -7,7 +7,7 @@ import { Person } from "../utils/types";
 
 export default function Home() {
   const [characteristic, setCharacteristic] = useState<
-    "attractiveness" | "intelligence" | "charisma" | null
+  "seksapil" | "cuteness" | "wifematerial" | null
   >(null);
   const [personA, setPersonA] = useState<Person | null>(null);
   const [personB, setPersonB] = useState<Person | null>(null);
@@ -15,7 +15,7 @@ export default function Home() {
   const [results, setResults] = useState<Person[]>([]);
 
   async function handleCharacteristicSelect(
-    selectedCharacteristic: "attractiveness" | "intelligence" | "charisma"
+    selectedCharacteristic: "seksapil" | "cuteness" | "wifematerial"
   ) {
     setCharacteristic(selectedCharacteristic);
     const { personA, personB } = await getMatchup();
@@ -30,7 +30,7 @@ export default function Home() {
     const otherPersonId =
       personA?._id === selectedPersonId ? personB?._id : personA?._id;
     await submitVote(
-      characteristic as "attractiveness" | "intelligence" | "charisma",
+      characteristic as "seksapil" | "cuteness" | "wifematerial",
       selectedPersonId,
       otherPersonId
     );
@@ -63,21 +63,21 @@ export default function Home() {
           <div className="btn-container">
             <button
               className="btn"
-              onClick={() => handleCharacteristicSelect("attractiveness")}
+              onClick={() => handleCharacteristicSelect("seksapil")}
             >
-              Attractiveness
+              Sex appeal
             </button>
             <button
               className="btn"
-              onClick={() => handleCharacteristicSelect("intelligence")}
+              onClick={() => handleCharacteristicSelect("cuteness")}
             >
-              Intelligence
+              Cuteness
             </button>
             <button
               className="btn"
-              onClick={() => handleCharacteristicSelect("charisma")}
+              onClick={() => handleCharacteristicSelect("wifematerial")}
             >
-              Charisma
+              Wife material
             </button>
           </div>
           <div className="btn-container">

@@ -139,3 +139,23 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
+
+  .img-container {
+    position: relative;
+    padding-top: 0px; /* Make space for the crown */
+    display: inline-block; /* Prevents the container from taking up the full width */
+    background-color: transparent; /* Make sure the background is transparent */
+    overflow: visible; /* Show the crown even if it's out of the container's bounds */
+  }
+  
+  .crown {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(-70%);
+  }
+
+  .ranking-results h2 {
+    margin-bottom: 90px; /* Increase the space below the "Results" label */
+  }
+  

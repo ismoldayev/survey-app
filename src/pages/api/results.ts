@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { connectToDatabase } from '../../../src/utils/db';
 
-const ADMIN_PASSWORD = 'andrewtate';
+const ADMIN_PASSWORD = 'pandora';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'POST') {

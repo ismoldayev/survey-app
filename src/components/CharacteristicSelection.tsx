@@ -10,14 +10,14 @@ const CharacteristicSelection: React.FC<CharacteristicSelectionProps> = ({
   return (
     <div>
       <h2>Select a characteristic to rank:</h2>
-      <button onClick={() => onCharacteristicSelect('attractiveness')}>
-        Attractiveness
+      <button onClick={() => onCharacteristicSelect('seksapil')}>
+        seksapil
       </button>
-      <button onClick={() => onCharacteristicSelect('intelligence')}>
-        Intelligence
+      <button onClick={() => onCharacteristicSelect('cuteness')}>
+        cuteness
       </button>
-      <button onClick={() => onCharacteristicSelect('charisma')}>
-        Charisma
+      <button onClick={() => onCharacteristicSelect('wifematerial')}>
+        wifematerial
       </button>
     </div>
   );
